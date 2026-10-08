@@ -1,0 +1,70 @@
+{
+    "name": "jeffersongoncalves/laravel-open-hours",
+    "description": "Business opening hours for Laravel, stored with spatie/laravel-settings: weekly schedule, holidays and special dates, timezone, isOpen/nextOpen helpers, a Blade directive and a status component.",
+    "keywords": [
+        "laravel",
+        "opening-hours",
+        "open-hours",
+        "business-hours",
+        "schedule",
+        "spatie-laravel-settings"
+    ],
+    "homepage": "https://github.com/jeffersongoncalves/laravel-open-hours",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Jefferson Simão Gonçalves",
+            "email": "gerson.simao.92@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "spatie/laravel-package-tools": "^1.16",
+        "illuminate/contracts": "^12.0|^13.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.24",
+        "orchestra/testbench": "^10.0|^11.0",
+        "pestphp/pest": "^3.0|^4.0",
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JeffersonGoncalves\\OpenHours\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JeffersonGoncalves\\OpenHours\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint",
+        "analyse": "vendor/bin/phpstan analyse"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JeffersonGoncalves\\OpenHours\\OpenHoursServiceProvider"
+            ],
+            "aliases": {
+                "OpenHours": "JeffersonGoncalves\\OpenHours\\Facades\\OpenHours"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
